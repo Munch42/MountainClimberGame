@@ -12,6 +12,10 @@ public class Score : MonoBehaviour
 
     public bool gameOver = false;
 
+    public GameObject gameMechanic;
+
+    private GameMechanics gameMechanics;
+
     private float startY;
     private int lastScore;
 
@@ -22,6 +26,8 @@ public class Score : MonoBehaviour
         startY *= -1;
         lastScore = 0;
         loseText.text = "";
+
+        gameMechanics = gameMechanic.GetComponent<GameMechanics>();
     }
 
     private void Update()
@@ -36,7 +42,9 @@ public class Score : MonoBehaviour
 
         if (gameOver)
         {
-            loseText.text = "You lost my triangle friend!";
+            loseText.text = "You lost my triangle friend!\nPress Enter To Restart!";
+            // Due to destruction, this will be handled in other script so we need to tell it that it is game over.
+            gameMechanics.gameOver = true;
             Destroy(this.gameObject);
         }
     }
