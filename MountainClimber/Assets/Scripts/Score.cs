@@ -42,7 +42,7 @@ public class Score : MonoBehaviour
 
         if (gameOver)
         {
-            loseText.text = "You lost my triangle friend!\nPress Enter To Restart!";
+            loseText.text = "You lost my triangle friend!\n\nPress Enter To Restart!";
             // Due to destruction, this will be handled in other script so we need to tell it that it is game over.
             gameMechanics.gameOver = true;
             Destroy(this.gameObject);
