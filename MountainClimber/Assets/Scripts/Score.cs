@@ -9,8 +9,11 @@ public class Score : MonoBehaviour
 
     public Text scoreText;
     public Text loseText;
+    public Text highScore;
 
     public bool gameOver = false;
+
+    //public Color beatColor;
 
     public GameObject gameMechanic;
 
@@ -28,6 +31,8 @@ public class Score : MonoBehaviour
         loseText.text = "";
 
         gameMechanics = gameMechanic.GetComponent<GameMechanics>();
+
+        highScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     private void Update()
@@ -39,6 +44,14 @@ public class Score : MonoBehaviour
         }
         scoreText.text = score.ToString();
         lastScore = score;
+
+        if(score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            highScore.text = "High Score: " + score.ToString();
+            //Color beatColor = new Color(40, 193, 224);
+            //highScore.color = beatColor;
+        }
 
         if (gameOver)
         {
