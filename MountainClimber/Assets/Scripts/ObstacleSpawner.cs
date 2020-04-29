@@ -6,7 +6,7 @@ public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject boulder;
 
-    public bool killSpawner = false;
+    private bool killSpawner = false;
 
     public int secondsMin;
     public int secondsMax; // Exclusive but we add 1 so it is inclusive.

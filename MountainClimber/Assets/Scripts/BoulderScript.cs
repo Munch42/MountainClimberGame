@@ -18,5 +18,10 @@ public class BoulderScript : MonoBehaviour
             score = collision.gameObject.GetComponent<Score>();
             score.gameOver = true;
         }
+
+        if(collision.gameObject.tag == "Wall")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
