@@ -15,5 +15,10 @@ public class GameMechanics : MonoBehaviour
         {
             SceneManager.LoadScene("Main");
         }
+
+        if(gameOver && Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
     }
 }

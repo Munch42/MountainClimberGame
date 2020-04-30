@@ -20,7 +20,10 @@ public class ObstacleSpawner : MonoBehaviour
     {
         while (!killSpawner)
         {
-            Instantiate(boulder, transform.position, Quaternion.identity);
+            GameObject randomBoulder = boulder;
+            float randomScale = Random.Range(1f, 3f);
+            randomBoulder.gameObject.transform.localScale = new Vector3(randomScale, randomScale, 1f);
+            Instantiate(randomBoulder, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(secondsMin, secondsMax + 1));
         }
     } 
