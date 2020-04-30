@@ -13,8 +13,6 @@ public class Score : MonoBehaviour
 
     public bool gameOver = false;
 
-    //public Color beatColor;
-
     public GameObject gameMechanic;
 
     private GameMechanics gameMechanics;
@@ -49,8 +47,8 @@ public class Score : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", score);
             highScore.text = "High Score: " + score.ToString();
-            //Color beatColor = new Color(40, 193, 224);
-            //highScore.color = beatColor;
+            Color32 beatColor = new Color32(237, 183, 22, 255);
+            highScore.color = beatColor;
         }
 
         if (gameOver)
